@@ -46,10 +46,10 @@ public class civilsos extends AppCompatActivity implements LocationListener {
     LocationManager mngr;
     String id;
     EditText custom;
-    String[] Tips = {"Stay Aware of Your Surroundings", "Trust Your Gut",
-            "Use Confident Body Language", "Avoid Dark and Isolated Areas",
-            "Plan Your Route Ahead of Time", "Carry a Personal Alarm or Whistle",
-            "Avoid Carrying Valuables","Trust Your Support Network"};
+    String[] Tips = {"Using your car keys is one of the easiest ways to defend yourself. Don’t use your fingernails, because you’re more at risk to injure your hands.", "If someone is coming at you from the front, a groin kick may deliver enough force to paralyze your attacker, making your escape possible.",
+            "This move can cause damage to the nose or throat. To execute, get in front of your attacker as much as is possible.", "If your attacker is in close range and you’re unable to get enough momentum to throw a strong punch or kick, use your elbows.",
+            "Depending on how you’re standing when you’re initially attacked, you may be in a better position for variations on the elbow strike.", "For cases where the attacker is coming from behind, you’ll want to use this move. Focus on getting low and creating space to free yourself.",
+            "When the attacker locks their arm around your head from the side, your first instinct should be to avoid getting choked."};
     String[] listofprobs = {"Murder", "Assault", "Chain Snatching", "Robbery", "Pick Pocketing", "Other"};
     String str_probs;
 //    String address;
