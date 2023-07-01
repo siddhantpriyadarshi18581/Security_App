@@ -41,12 +41,12 @@ import java.util.Random;
 public class civilsos extends AppCompatActivity implements LocationListener {
     Spinner prob;
     List<Address> addressList;
-    Button sendsos;
+    protected Button sendsos;
     String address;
     LocationManager mngr;
     String id;
     EditText custom;
-    String[] Tips = {"Stay Aware of Your Surroundingse", "Trust Your Gut",
+    String[] Tips = {"Stay Aware of Your Surroundings", "Trust Your Gut",
             "Use Confident Body Language", "Avoid Dark and Isolated Areas",
             "Plan Your Route Ahead of Time", "Carry a Personal Alarm or Whistle",
             "Avoid Carrying Valuables","Trust Your Support Network"};

@@ -7,11 +7,29 @@
     android:background="@drawable/iphone2"
     tools:context=".generatesos">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="391dp"
+        android:layout_height="112dp"
+        android:text="Emergency Response System"
+        android:textAlignment="center"
+        android:textColor="#FBFAFA"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025"
+        tools:ignore="HardcodedText" />
+
     <Button
         android:id="@+id/generate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:backgroundTint="#2CB442"
+        android:text="@string/ners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -30,5 +48,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.378"
         app:srcCompat="@drawable/police_default"
-        android:contentDescription="Profile Photo" />
+        android:contentDescription="@string/profile_photo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

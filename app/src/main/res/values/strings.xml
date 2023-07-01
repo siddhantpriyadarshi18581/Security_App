@@ -2,4 +2,7 @@
     <string name="app_name">EmpowHer</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="dropped_pin">location</string>
+    <string name="ners">NERS</string>
+    <string name="profile_photo">Profile Photo</string>
+    <string name="sos_trigger">SOS Trigger!!</string>
 </resources>
