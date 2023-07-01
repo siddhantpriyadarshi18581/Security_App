@@ -11,6 +11,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,6 +36,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 public class civilsos extends AppCompatActivity implements LocationListener {
     Spinner prob;
@@ -44,11 +46,16 @@ public class civilsos extends AppCompatActivity implements LocationListener {
     LocationManager mngr;
     String id;
     EditText custom;
+    String[] Tips = {"Stay Aware of Your Surroundingse", "Trust Your Gut",
+            "Use Confident Body Language", "Avoid Dark and Isolated Areas",
+            "Plan Your Route Ahead of Time", "Carry a Personal Alarm or Whistle",
+            "Avoid Carrying Valuables","Trust Your Support Network"};
     String[] listofprobs = {"Murder", "Assault", "Chain Snatching", "Robbery", "Pick Pocketing", "Other"};
     String str_probs;
 //    String address;
     double lati, longi;
     String latit, longit;
+    private static final int PERMISSION_REQUEST_SEND_SMS = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +85,20 @@ public class civilsos extends AppCompatActivity implements LocationListener {
             @Override
             public void onClick(View v) {
                 getLocation();
+                sendSMS(address);
                 onStorage();
             }
         });
+    }
+
+    private void sendSMS(String address) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, PERMISSION_REQUEST_SEND_SMS);
+        } else {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage("+919798951701", null, address+"I am in Danger", null, null);
+//            Toast.makeText(this, "SMS sent to " + phoneNumber, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @SuppressLint("HardwareIds")
@@ -105,11 +123,15 @@ public class civilsos extends AppCompatActivity implements LocationListener {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(civilsos.this, "Helping You as always", Toast.LENGTH_SHORT).show();
+                Random r=new Random();
+                int randomNumber=r.nextInt(Tips.length);
+                Toast.makeText(civilsos.this, "Tips in Emergency Situation: "+Tips[randomNumber], Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(civilsos.this, "You have to wait for a while", Toast.LENGTH_SHORT).show();
+                sendSMS(address);
             }
         });
     }
