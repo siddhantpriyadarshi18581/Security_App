@@ -1,8 +1,6 @@
 package com.example.googlemaps;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
@@ -16,6 +14,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -127,12 +128,13 @@ TextView loging;
     }
 
     private void createAccount() {
-        progressDialog.setMessage("Creati your Account...");
+        progressDialog.setMessage("Creating your Account...");
         progressDialog.show();
 
         sendConfirmDB();
     }
 
+    @SuppressLint("HardwareIds")
     private void sendConfirmDB() {
         id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");

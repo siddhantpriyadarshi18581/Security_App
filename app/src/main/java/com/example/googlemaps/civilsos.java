@@ -146,6 +146,13 @@ public class civilsos extends AppCompatActivity implements LocationListener {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 200);
         }
     }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 200 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            retrieveLocation();
+        }
+    }
 
     @SuppressLint("MissingPermission")
     private void retrieveLocation() {
@@ -154,15 +161,6 @@ public class civilsos extends AppCompatActivity implements LocationListener {
 
         Location location = mngr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         onLocationChanged(location);
-    }
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 200 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            retrieveLocation();
-        }
     }
 
     @Override
