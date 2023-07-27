@@ -36,4 +36,4 @@ This is our SOS database table.
 
 ![image](https://github.com/siddhantpriyadarshi18581/Security_App/assets/77992570/a66c1d43-ced4-462e-9950-fba1700096af)
 
-# <--------------------------THE END-------------------------->
+# <--------------------------THE END------------------------->
